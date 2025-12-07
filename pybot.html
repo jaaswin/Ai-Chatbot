@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pondicherry Tourism Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="config.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    .app-wrapper {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    :focus-visible {
+      outline: 2px solid #fbbf24;
+      outline-offset: 2px;
+    }
+
+    .nav-link {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .place-card,
+    .activity-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .place-card:hover,
+    .activity-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .section-divider {
+      width: 80px;
+      height: 4px;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+  </style>
+  <style>
+    @view-transition {
+      navigation: auto;
+    }
+  </style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+
+<body class="app-wrapper"><!-- Navigation -->
+  <nav id="main-nav" class="w-full sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-2"><span class="text-3xl">🏖️</span> <span id="nav-logo"
+            class="text-xl font-bold">Pondicherry Tourism</span>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm font-semibold"><a class="nav-link" href="#home">Home</a> <a
+            class="nav-link" href="#about">About</a> <a class="nav-link" href="#places">Places</a> <a class="nav-link"
+            href="#activities">Activities</a> <a class="nav-link" href="#food">Food</a> <a class="nav-link"
+            href="#travel">Travel</a> <a class="nav-link" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav><!-- Home Section -->
+  <header id="home" class="w-full relative" style="min-height: 80%;">
+    <div id="hero-section" class="w-full h-full px-6 py-24 flex items-center justify-center relative">
+      <div class="max-w-5xl w-full text-center z-10">
+        <div class="mb-6">
+          <div id="hero-badge"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold shadow-lg"><span
+              class="text-2xl">🌴</span> <span>French Riviera of the East</span>
+          </div>
+        </div>
+        <h1 id="hero-title" class="font-bold tracking-tight mb-6">Welcome to Pondicherry</h1>
+        <p id="hero-subtitle" class="text-2xl mb-8 opacity-90 max-w-3xl mx-auto">Where French Elegance Meets Indian
+          Charm on the Bay of Bengal</p>
+        <div id="intro-box" class="max-w-3xl mx-auto rounded-2xl p-8 shadow-xl mb-10">
+          <p id="intro-text" class="text-lg leading-relaxed">Discover the magic of Pondicherry, a coastal paradise where
+            cobblestone streets meet golden beaches, French colonial architecture blends with Tamil heritage, and
+            spiritual serenity embraces vibrant culture. Experience world-class cuisine, pristine beaches, and the
+            universal township of Auroville.</p>
+        </div><button id="explore-btn" type="button"
+          class="px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+          Start Exploring </button>
+      </div>
+      <div class="absolute top-20 left-10 text-7xl opacity-20 float-animation" style="animation-delay: 0s;">
+        🏖️
+      </div>
+      <div class="absolute bottom-20 right-10 text-7xl opacity-20 float-animation" style="animation-delay: 1.5s;">
+        🛕
+      </div>
+      <div class="absolute top-40 right-20 text-6xl opacity-20 float-animation" style="animation-delay: 3s;">
+        🌺
+      </div>
+    </div>
+  </header><!-- About Section -->
+  <main class="w-full">
+    <section id="about" class="w-full px-6 py-20">
+      <div class="max-w-6xl mx-auto">
+        <h2 id="about-heading" class="text-4xl font-bold text-center mb-4">About Pondicherry</h2>
+        <div class="section-divider mb-12"></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <article id="history-card" class="rounded-2xl p-8 shadow-lg">
+            <div class="text-5xl mb-4">
+              📜
+            </div>
+            <h3 class="text-2xl font-bold mb-4">History</h3>
+            <p id="history-text" class="opacity-80 leading-relaxed">Founded as a French colonial settlement in 1674,
+              Pondicherry remained under French control until 1954. The city preserves its colonial heritage through
+              architecture, street names, and cultural traditions, making it a living museum of Indo-French history.</p>
+          </article>
+          <article id="heritage-card" class="rounded-2xl p-8 shadow-lg">
+            <div class="text-5xl mb-4">
+              🏛️
+            </div>
+            <h3 class="text-2xl font-bold mb-4">French Heritage</h3>
+            <p id="heritage-text" class="opacity-80 leading-relaxed">The French Quarter (White Town) showcases
+              mustard-yellow colonial buildings, tree-lined boulevards, and charming cafés. French is still spoken,
+              baguettes are baked fresh daily, and the architecture transports you to a Mediterranean village.</p>
+          </article>
+          <article id="culture-card" class="rounded-2xl p-8 shadow-lg">
+            <div class="text-5xl mb-4">
+              🎭
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Culture &amp; Climate</h3>
+            <p id="culture-text" class="opacity-80 leading-relaxed">A unique blend of Tamil and French cultures creates
+              vibrant festivals like Bastille Day and Pongal. The tropical climate offers warm weather year-round, with
+              monsoons from October to December. Best visited from November to March.</p>
+          </article>
+        </div>
+      </div>
+    </section><!-- Top Places Section -->
+    <section id="places" class="w-full px-6 py-20">
+      <div class="max-w-6xl mx-auto">
+        <h2 id="places-heading" class="text-4xl font-bold text-center mb-4">Top Tourist Places</h2>
+        <div class="section-divider mb-12"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><!-- Place 1 -->
+          <article class="place-card rounded-2xl overflow-hidden shadow-lg">
+            <div class="h-32 flex items-center justify-center text-6xl">
+              🌊
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Promenade Beach</h3>
+              <p class="text-sm opacity-80">1.5km scenic beachfront perfect for morning walks and sunset views</p>
+            </div>
+          </article><!-- Place 2 -->
+          <article class="place-card rounded-2xl overflow-hidden shadow-lg">
+            <div class="h-32 flex items-center justify-center text-6xl">
+              🕉️
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Aurobindo Ashram</h3>
+              <p class="text-sm opacity-80">Spiritual center founded by Sri Aurobindo, offering peace and meditation</p>
+            </div>
+          </article><!-- Place 3 -->
+          <article class="place-card rounded-2xl overflow-hidden shadow-lg">
+            <div class="h-32 flex items-center justify-center text-6xl">
+              🌍
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Auroville</h3>
+              <p class="text-sm opacity-80">Universal township with the iconic golden Matrimandir meditation center</p>
+            </div>
+          </article><!-- Place 4 -->
+          <article class="place-card rounded-2xl overflow-hidden shadow-lg">
+            <div class="h-32 flex items-center justify-center text-6xl">
+              🏝️
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Paradise Beach</h3>
+              <p class="text-sm opacity-80">Pristine beach accessible by boat, ideal for swimming and water sports</p>
+            </div>
+          </article><!-- Place 5 -->
+          <article class="place-card rounded-2xl overflow-hidden shadow-lg">
+            <div class="h-32 flex items-center justify-center text-6xl">
+              🪨
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Rock Beach</h3>
+              <p class="text-sm opacity-80">Rocky coastline with stunning views and the iconic Gandhi statue</p>
+            </div>
+          </article><!-- Place 6 -->
+          <article class="place-card rounded-2xl overflow-hidden shadow-lg">
+            <div class="h-32 flex items-center justify-center text-6xl">
+              🏛️
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">French Quarter</h3>
+              <p class="text-sm opacity-80">White Town with colonial architecture, boutiques, and art galleries</p>
+            </div>
+          </article><!-- Place 7 -->
+          <article class="place-card rounded-2xl overflow-hidden shadow-lg">
+            <div class="h-32 flex items-center justify-center text-6xl">
+              🌳
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Botanical Garden</h3>
+              <p class="text-sm opacity-80">22-acre garden with exotic plants, musical fountain, and aquarium</p>
+            </div>
+          </article><!-- Place 8 -->
+          <article class="place-card rounded-2xl overflow-hidden shadow-lg">
+            <div class="h-32 flex items-center justify-center text-6xl">
+              🚤
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Chunnambar Boat House</h3>
+              <p class="text-sm opacity-80">Backwater paradise offering boating, kayaking, and nature trails</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section><!-- Activities Section -->
+    <section id="activities" class="w-full px-6 py-20">
+      <div class="max-w-6xl mx-auto">
+        <h2 id="activities-heading" class="text-4xl font-bold text-center mb-4">Things to Do</h2>
+        <div class="section-divider mb-12"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="activity-card rounded-2xl p-6 shadow-lg text-center">
+            <div class="text-5xl mb-4">
+              🤿
+            </div>
+            <h3 class="text-xl font-bold mb-3">Water Activities</h3>
+            <p class="text-sm opacity-80">Scuba diving, snorkeling, surfing, and boating at Paradise Beach and Serenity
+              Beach</p>
+          </article>
+          <article class="activity-card rounded-2xl p-6 shadow-lg text-center">
+            <div class="text-5xl mb-4">
+              🚴
+            </div>
+            <h3 class="text-xl font-bold mb-3">Cycling Tours</h3>
+            <p class="text-sm opacity-80">Explore the French Quarter and coastal roads on guided or self-guided bike
+              tours</p>
+          </article>
+          <article class="activity-card rounded-2xl p-6 shadow-lg text-center">
+            <div class="text-5xl mb-4">
+              🚶
+            </div>
+            <h3 class="text-xl font-bold mb-3">Heritage Walks</h3>
+            <p class="text-sm opacity-80">Guided walking tours through colonial streets, temples, and historic landmarks
+            </p>
+          </article>
+          <article class="activity-card rounded-2xl p-6 shadow-lg text-center">
+            <div class="text-5xl mb-4">
+              🛍️
+            </div>
+            <h3 class="text-xl font-bold mb-3">Shopping Markets</h3>
+            <p class="text-sm opacity-80">Browse handicrafts, textiles, and souvenirs at Goubert Market and Mission
+              Street</p>
+          </article>
+        </div>
+      </div>
+    </section><!-- Food Section -->
+    <section id="food" class="w-full px-6 py-20">
+      <div class="max-w-6xl mx-auto">
+        <h2 id="food-heading" class="text-4xl font-bold text-center mb-4">Food &amp; Restaurants</h2>
+        <div class="section-divider mb-12"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div id="cuisine-card" class="rounded-2xl p-8 shadow-lg">
+            <div class="text-5xl mb-4">
+              🍽️
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Popular Cuisines</h3>
+            <ul class="space-y-3 opacity-80">
+              <li>🥖 <strong>French:</strong> Croissants, baguettes, crepes, and pastries</li>
+              <li>🍛 <strong>Tamil:</strong> Dosas, idlis, sambar, and seafood curries</li>
+              <li>🍕 <strong>Continental:</strong> Pizzas, pastas, and Mediterranean dishes</li>
+              <li>🦞 <strong>Seafood:</strong> Fresh catch prepared in French and Tamil styles</li>
+            </ul>
+          </div>
+          <div id="restaurants-card" class="rounded-2xl p-8 shadow-lg">
+            <div class="text-5xl mb-4">
+              ☕
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Best Cafés &amp; Restaurants</h3>
+            <ul class="space-y-3 opacity-80">
+              <li>☕ <strong>Café des Arts:</strong> French café with art gallery ambiance</li>
+              <li>🥐 <strong>Baker Street:</strong> Authentic French bakery and bistro</li>
+              <li>🍝 <strong>Villa Shanti:</strong> Fine dining with fusion cuisine</li>
+              <li>🌊 <strong>Le Dupleix:</strong> Rooftop dining with sea views</li>
+              <li>🍛 <strong>Surguru:</strong> Traditional South Indian vegetarian</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section><!-- Travel Guide Section -->
+    <section id="travel" class="w-full px-6 py-20">
+      <div class="max-w-6xl mx-auto">
+        <h2 id="travel-heading" class="text-4xl font-bold text-center mb-4">Travel Guide</h2>
+        <div class="section-divider mb-12"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div id="reach-card" class="rounded-2xl p-8 shadow-lg">
+            <div class="text-5xl mb-4">
+              ✈️
+            </div>
+            <h3 class="text-2xl font-bold mb-4">How to Reach</h3>
+            <div class="space-y-4 opacity-80">
+              <div>
+                <p class="font-semibold mb-1">🛫 By Air:</p>
+                <p class="text-sm">Nearest airport: Chennai (150km). Puducherry Airport for chartered flights.</p>
+              </div>
+              <div>
+                <p class="font-semibold mb-1">🚂 By Rail:</p>
+                <p class="text-sm">Pondicherry Railway Station connects to Chennai, Bangalore, and major cities.</p>
+              </div>
+              <div>
+                <p class="font-semibold mb-1">🚗 By Road:</p>
+                <p class="text-sm">Well-connected by NH45A. Regular buses from Chennai (3hrs), Bangalore (6hrs).</p>
+              </div>
+            </div>
+          </div>
+          <div id="tips-card" class="rounded-2xl p-8 shadow-lg">
+            <div class="text-5xl mb-4">
+              💡
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Travel Tips</h3>
+            <div class="space-y-4 opacity-80">
+              <div>
+                <p class="font-semibold mb-1">🚕 Local Transport:</p>
+                <p class="text-sm">Auto-rickshaws, rental bikes/scooters, taxis, and cycle rickshaws available.</p>
+              </div>
+              <div>
+                <p class="font-semibold mb-1">📅 Best Time:</p>
+                <p class="text-sm">November to March (pleasant weather). Avoid monsoon season (Oct-Dec).</p>
+              </div>
+              <div>
+                <p class="font-semibold mb-1">🛡️ Safety:</p>
+                <p class="text-sm">Very safe for tourists. Carry ID, stay hydrated, respect local customs, and avoid
+                  isolated beaches at night.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- Contact Section -->
+    <section id="contact" class="w-full px-6 py-20">
+      <div class="max-w-6xl mx-auto">
+        <h2 id="contact-heading" class="text-4xl font-bold text-center mb-4">Contact &amp; Emergency</h2>
+        <div class="section-divider mb-12"></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div id="emergency-card" class="rounded-2xl p-8 shadow-lg text-center">
+            <div class="text-5xl mb-4">
+              🚨
+            </div>
+            <h3 class="text-xl font-bold mb-4">Emergency Numbers</h3>
+            <div class="space-y-2 text-sm">
+              <p><strong>Police:</strong> 100</p>
+              <p><strong>Ambulance:</strong> 108</p>
+              <p><strong>Fire:</strong> 101</p>
+              <p><strong>Tourist Police:</strong> 0413-2334969</p>
+            </div>
+          </div>
+          <div id="helpline-card" class="rounded-2xl p-8 shadow-lg text-center">
+            <div class="text-5xl mb-4">
+              📞
+            </div>
+            <h3 class="text-xl font-bold mb-4">Tourist Helplines</h3>
+            <div class="space-y-2 text-sm">
+              <p><strong>Tourism Office:</strong> 0413-2339497</p>
+              <p><strong>Railway Enquiry:</strong> 139</p>
+              <p><strong>Bus Stand:</strong> 0413-2337463</p>
+              <p><strong>Airport:</strong> 0413-2302990</p>
+            </div>
+          </div>
+          <div id="info-card" class="rounded-2xl p-8 shadow-lg text-center">
+            <div class="text-5xl mb-4">
+              ℹ️
+            </div>
+            <h3 class="text-xl font-bold mb-4">Tourist Information</h3>
+            <div class="space-y-2 text-sm">
+              <p><strong>Main Office:</strong> 40, Goubert Avenue</p>
+              <p><strong>Email:</strong> tourism@pon.nic.in</p>
+              <p><strong>Website:</strong> tourism.puducherry.gov.in</p>
+              <p><strong>Hours:</strong> 9:30 AM - 5:30 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main><!-- Footer -->
+  <footer id="footer" class="w-full px-6 py-8 border-t">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="opacity-75 mb-2">© 2025 Pondicherry Tourism Guide. Explore the French Riviera of the East.</p>
+      <p class="text-sm opacity-60">Made with ❤️ for travelers • All information subject to change • Please verify
+        details before travel</p>
+    </div>
+  </footer>
+  <script>
+    const defaultConfig = {
+      hero_title: "Welcome to Pondicherry",
+      hero_subtitle: "Where French Elegance Meets Indian Charm on the Bay of Bengal",
+      intro_text: "Discover the magic of Pondicherry, a coastal paradise where cobblestone streets meet golden beaches, French colonial architecture blends with Tamil heritage, and spiritual serenity embraces vibrant culture. Experience world-class cuisine, pristine beaches, and the universal township of Auroville.",
+      about_heading: "About Pondicherry",
+      history_text: "Founded as a French colonial settlement in 1674, Pondicherry remained under French control until 1954. The city preserves its colonial heritage through architecture, street names, and cultural traditions, making it a living museum of Indo-French history.",
+      culture_text: "A unique blend of Tamil and French cultures creates vibrant festivals like Bastille Day and Pongal. The tropical climate offers warm weather year-round, with monsoons from October to December. Best visited from November to March.",
+      places_heading: "Top Tourist Places",
+      activities_heading: "Things to Do",
+      food_heading: "Food & Restaurants",
+      travel_heading: "Travel Guide",
+      contact_heading: "Contact & Emergency",
+
+      background_color: "#0a1628",
+      surface_color: "#1e3a5f",
+      text_color: "#f0f4f8",
+      primary_action_color: "#f59e0b",
+      secondary_action_color: "#10b981",
+
+      font_family: "Inter",
+      font_size: 16
+    };
+
+    const elements = {
+      mainNav: document.getElementById("main-nav"),
+      heroSection: document.getElementById("hero-section"),
+      heroBadge: document.getElementById("hero-badge"),
+      heroTitle: document.getElementById("hero-title"),
+      heroSubtitle: document.getElementById("hero-subtitle"),
+      introBox: document.getElementById("intro-box"),
+      introText: document.getElementById("intro-text"),
+      exploreBtn: document.getElementById("explore-btn"),
+      aboutHeading: document.getElementById("about-heading"),
+      historyCard: document.getElementById("history-card"),
+      heritageCard: document.getElementById("heritage-card"),
+      cultureCard: document.getElementById("culture-card"),
+      historyText: document.getElementById("history-text"),
+      cultureText: document.getElementById("culture-text"),
+      placesHeading: document.getElementById("places-heading"),
+      activitiesHeading: document.getElementById("activities-heading"),
+      foodHeading: document.getElementById("food-heading"),
+      cuisineCard: document.getElementById("cuisine-card"),
+      restaurantsCard: document.getElementById("restaurants-card"),
+      travelHeading: document.getElementById("travel-heading"),
+      reachCard: document.getElementById("reach-card"),
+      tipsCard: document.getElementById("tips-card"),
+      contactHeading: document.getElementById("contact-heading"),
+      emergencyCard: document.getElementById("emergency-card"),
+      helplineCard: document.getElementById("helpline-card"),
+      infoCard: document.getElementById("info-card"),
+      footer: document.getElementById("footer")
+    };
+
+    async function onConfigChange(config) {
+      const cfg = Object.assign({}, defaultConfig, config || {});
+      const baseFont = cfg.font_family || defaultConfig.font_family;
+      const baseSize = cfg.font_size || defaultConfig.font_size;
+      const fullFontStack = `${baseFont}, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`;
+
+      document.body.style.backgroundColor = cfg.background_color;
+      elements.heroSection.style.background = `linear-gradient(135deg, ${cfg.background_color} 0%, ${cfg.surface_color} 100%)`;
+
+      elements.mainNav.style.backgroundColor = cfg.surface_color;
+      elements.introBox.style.backgroundColor = cfg.surface_color;
+      elements.historyCard.style.backgroundColor = cfg.surface_color;
+      elements.heritageCard.style.backgroundColor = cfg.surface_color;
+      elements.cultureCard.style.backgroundColor = cfg.surface_color;
+      elements.cuisineCard.style.backgroundColor = cfg.surface_color;
+      elements.restaurantsCard.style.backgroundColor = cfg.surface_color;
+      elements.reachCard.style.backgroundColor = cfg.surface_color;
+      elements.tipsCard.style.backgroundColor = cfg.surface_color;
+      elements.emergencyCard.style.backgroundColor = cfg.surface_color;
+      elements.helplineCard.style.backgroundColor = cfg.surface_color;
+      elements.infoCard.style.backgroundColor = cfg.surface_color;
+      elements.footer.style.backgroundColor = cfg.surface_color;
+
+      document.getElementById("about").style.backgroundColor = cfg.background_color;
+      document.getElementById("places").style.backgroundColor = cfg.surface_color;
+      document.getElementById("activities").style.backgroundColor = cfg.background_color;
+      document.getElementById("food").style.backgroundColor = cfg.surface_color;
+      document.getElementById("travel").style.backgroundColor = cfg.background_color;
+      document.getElementById("contact").style.backgroundColor = cfg.surface_color;
+
+      document.querySelectorAll('.place-card, .activity-card').forEach(card => {
+        card.style.backgroundColor = cfg.background_color;
+      });
+
+      const textElements = [
+        elements.heroTitle,
+        elements.heroSubtitle,
+        elements.introText,
+        elements.aboutHeading,
+        elements.historyText,
+        elements.cultureText,
+        elements.placesHeading,
+        elements.activitiesHeading,
+        elements.foodHeading,
+        elements.travelHeading,
+        elements.contactHeading
+      ];
+
+      textElements.forEach(el => {
+        if (el) el.style.color = cfg.text_color;
+      });
+
+      document.querySelectorAll('.nav-link, #nav-logo, .place-card h3, .place-card p, .activity-card h3, .activity-card p, #history-card h3, #heritage-card h3, #culture-card h3, #history-card p, #heritage-card p, #culture-card p, #cuisine-card h3, #cuisine-card li, #restaurants-card h3, #restaurants-card li, #reach-card h3, #reach-card p, #tips-card h3, #tips-card p, #emergency-card h3, #emergency-card p, #helpline-card h3, #helpline-card p, #info-card h3, #info-card p, #footer p').forEach(el => {
+        el.style.color = cfg.text_color;
+      });
+
+      elements.exploreBtn.style.backgroundColor = cfg.primary_action_color;
+      elements.exploreBtn.style.color = cfg.background_color;
+
+      elements.heroBadge.style.backgroundColor = cfg.secondary_action_color + "33";
+      elements.heroBadge.style.color = cfg.secondary_action_color;
+
+      document.querySelectorAll('.section-divider').forEach(div => {
+        div.style.backgroundColor = cfg.secondary_action_color;
+      });
+
+      textElements.forEach(el => {
+        if (el) el.style.fontFamily = fullFontStack;
+      });
+
+      document.querySelectorAll('.nav-link, #nav-logo, .place-card h3, .place-card p, .activity-card h3, .activity-card p, #history-card h3, #heritage-card h3, #culture-card h3, #history-card p, #heritage-card p, #culture-card p, #cuisine-card h3, #cuisine-card li, #restaurants-card h3, #restaurants-card li, #reach-card h3, #reach-card p, #tips-card h3, #tips-card p, #emergency-card h3, #emergency-card p, #helpline-card h3, #helpline-card p, #info-card h3, #info-card p, #footer p, #explore-btn').forEach(el => {
+        el.style.fontFamily = fullFontStack;
+      });
+
+      elements.heroTitle.style.fontSize = (baseSize * 3.5) + "px";
+      elements.heroSubtitle.style.fontSize = (baseSize * 1.5) + "px";
+      elements.introText.style.fontSize = (baseSize * 1.125) + "px";
+      elements.aboutHeading.style.fontSize = (baseSize * 2.5) + "px";
+      elements.placesHeading.style.fontSize = (baseSize * 2.5) + "px";
+      elements.activitiesHeading.style.fontSize = (baseSize * 2.5) + "px";
+      elements.foodHeading.style.fontSize = (baseSize * 2.5) + "px";
+      elements.travelHeading.style.fontSize = (baseSize * 2.5) + "px";
+      elements.contactHeading.style.fontSize = (baseSize * 2.5) + "px";
+
+      document.querySelectorAll('.nav-link').forEach(el => {
+        el.style.fontSize = (baseSize * 0.875) + "px";
+      });
+
+      document.querySelectorAll('#nav-logo').forEach(el => {
+        el.style.fontSize = (baseSize * 1.25) + "px";
+      });
+
+      document.querySelectorAll('.place-card h3, .activity-card h3, #history-card h3, #heritage-card h3, #culture-card h3, #cuisine-card h3, #restaurants-card h3, #reach-card h3, #tips-card h3, #emergency-card h3, #helpline-card h3, #info-card h3').forEach(el => {
+        el.style.fontSize = (baseSize * 1.25) + "px";
+      });
+
+      document.querySelectorAll('.place-card p, .activity-card p, #history-card p, #heritage-card p, #culture-card p, #cuisine-card li, #restaurants-card li, #reach-card p, #tips-card p, #emergency-card p, #helpline-card p, #info-card p').forEach(el => {
+        el.style.fontSize = (baseSize * 0.875) + "px";
+      });
+
+      elements.heroTitle.textContent = cfg.hero_title;
+      elements.heroSubtitle.textContent = cfg.hero_subtitle;
+      elements.introText.textContent = cfg.intro_text;
+      elements.aboutHeading.textContent = cfg.about_heading;
+      elements.historyText.textContent = cfg.history_text;
+      elements.cultureText.textContent = cfg.culture_text;
+      elements.placesHeading.textContent = cfg.places_heading;
+      elements.activitiesHeading.textContent = cfg.activities_heading;
+      elements.foodHeading.textContent = cfg.food_heading;
+      elements.travelHeading.textContent = cfg.travel_heading;
+      elements.contactHeading.textContent = cfg.contact_heading;
+    }
+
+    (async function initElementSdk() {
+      if (!window.elementSdk) {
+        await onConfigChange(defaultConfig);
+        return;
+      }
+
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          await onConfigChange(config);
+        },
+        mapToCapabilities: (config) => {
+          const cfg = Object.assign({}, defaultConfig, config || {});
+
+          const recolorables = [
+            {
+              get: () => cfg.background_color,
+              set: (value) => {
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => cfg.surface_color,
+              set: (value) => {
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            },
+            {
+              get: () => cfg.text_color,
+              set: (value) => {
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => cfg.primary_action_color,
+              set: (value) => {
+                window.elementSdk.setConfig({ primary_action_color: value });
+              }
+            },
+            {
+              get: () => cfg.secondary_action_color,
+              set: (value) => {
+                window.elementSdk.setConfig({ secondary_action_color: value });
+              }
+            }
+          ];
+
+          const fontEditable = {
+            get: () => cfg.font_family,
+            set: (value) => {
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          };
+
+          const fontSizeable = {
+            get: () => cfg.font_size,
+            set: (value) => {
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          };
+
+          return {
+            recolorables,
+            borderables: [],
+            fontEditable,
+            fontSizeable
+          };
+        },
+        mapToEditPanelValues: (config) => {
+          const cfg = Object.assign({}, defaultConfig, config || {});
+          return new Map([
+            ["hero_title", cfg.hero_title],
+            ["hero_subtitle", cfg.hero_subtitle],
+            ["intro_text", cfg.intro_text],
+            ["about_heading", cfg.about_heading],
+            ["history_text", cfg.history_text],
+            ["culture_text", cfg.culture_text],
+            ["places_heading", cfg.places_heading],
+            ["activities_heading", cfg.activities_heading],
+            ["food_heading", cfg.food_heading],
+            ["travel_heading", cfg.travel_heading],
+            ["contact_heading", cfg.contact_heading]
+          ]);
+        }
+      });
+
+      await onConfigChange(window.elementSdk.config || defaultConfig);
+    })();
+
+    elements.exploreBtn.addEventListener('click', () => {
+      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    });
+
+  </script>
+  <script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+    // Load configuration from environment variables or defaults
+    const config = await window.ChatbotConfig.loadFromEnv();
+
+    Chatbot.init({
+      chatflowid: config.chatflowid,
+      apiHost: config.apiHost,
+    })
+  </script>
+  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9aa318f064bb6ce0',t:'MTc2NTEwMDgwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
