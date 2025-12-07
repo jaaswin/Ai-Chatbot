@@ -1,6 +1,15 @@
 # 🏖️ Pondicherry Tourism Guide – AI Agent
 
 
+<div align="center" style="margin: 30px 0;">
+  <a href="https://jaaswin-chatbot.netlify.app" target="_blank">
+    <img src="https://img.shields.io/badge/EXPLORE%20NOW-Click%20Here-brightgreen?style=for-the-badge&logo=vercel" alt="Live Demo" style="margin-top:20px;margin-bottom:20px;cursor:pointer;">
+  </a>
+  <br>
+  <strong>Visit the interactive Pondicherry Tourism Guide :<br>
+  <a href="https://jaaswin-chatbot.netlify.app">https://jaaswin-chatbot.netlify.app</a>
+  </strong>
+</div>
 
 ---
 
@@ -100,3 +109,4 @@ If you want an AI chatbot or custom website, feel free to reach out:
 > 
 
 </div>
+
