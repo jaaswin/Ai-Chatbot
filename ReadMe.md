@@ -84,12 +84,7 @@ I offer:
 
 ---
 
-## 🎉  Conclusion
 
-This project demonstrates my ability to combine **AI technology** with **practical web development**.  
-It shows how AI agents can *enhance user experiences* and provide instant, interactive assistance in real-world situations! 🚀
-
----
 
 ## 📬 Contact Me
 
@@ -106,5 +101,6 @@ If you want an AI chatbot or custom website, feel free to reach out:
 > 
 
 </div>
+
 
 
